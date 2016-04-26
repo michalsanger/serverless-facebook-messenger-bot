@@ -8,9 +8,7 @@ You need to have installed the [Serverless Framework](https://github.com/serverl
 
 ### 1. Init project
 ```
-git clone git@github.com:michalsanger/serverless-facebook-messenger-bot.git
-cd serverless-facebook-messenger-bot
-sls project init
+sls project install serverless-facebook-messenger-bot
 ```
 
 ### 2. Setup FB App
@@ -26,7 +24,8 @@ sls variables set -k VERIFY_TOKEN
 ### 4. Deploy backend app
 Deploy all functions and endpoints
 ```
-sls dash deploy
+sls function deploy --all
+sls endpoint deploy --all
 ```
 Now you have public webhook URL.
 
@@ -40,3 +39,11 @@ curl -ik -X POST "https://graph.facebook.com/v2.6/me/subscribed_apps?access_toke
 
 ### 7. Send messages
 Go to your Facebook Page and send a message to it. The response will come from your brand new servreless backend! See screenshots in the [Quickstart](https://developers.facebook.com/docs/messenger-platform/quickstart#receive_messages)
+
+## Running Tests
+```
+npm test
+```
+
+## Develop
+Want to add some logic into bot's responses? Take a look in `functions/webhook/handlers/`
