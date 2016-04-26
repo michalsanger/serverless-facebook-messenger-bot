@@ -7,9 +7,26 @@
     "deploy": "sls dash deploy",
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill __tests__/*.js"
   },
-  "author": "michal.sanger@gmail.com",
+  "author": "Michal Sänger <michal.sanger@gmail.com>",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michalsanger/serverless-facebook-messenger-bot.git"
+  },
+  "keywords": [
+    "serverless",
+    "serverless framework",
+    "serverless applications",
+    "api gateway",
+    "lambda",
+    "aws",
+    "aws lambda",
+    "amazon",
+    "amazon web services",
+    "facebook messenger",
+    "facebook messenger bot"
+  ],
   "dependencies": {
     "axios": "^0.9.1"
   },
