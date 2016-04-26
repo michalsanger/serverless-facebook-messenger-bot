@@ -1,0 +1,23 @@
+{
+  "id": "PAGE_ID",
+  "time": 1458696618911,
+  "messaging": [{
+    "sender": {
+      "id": "USER_ID"
+    },
+    "recipient": {
+      "id": "PAGE_ID"
+    },
+    "timestamp": 1458696618268,
+    "message": {
+      "mid": "mid.1458696618141:b4ef9d19ec21086067",
+      "seq": 51,
+      "attachments": [{
+        "type": "video",
+        "payload": {
+          "url": "VIDEO_URL"
+        }
+      }]
+    }
+  }]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "facebook-messenger-bot",
+  "custom": {
+    "serverless-offline": {
+      "babelOptions": {
+        "presets": [
+          "es2015"
+        ]
+      }
+    }
+  },
+  "plugins": [
+    "serverless-offline",
+    "serverless-webpack-plugin"
+  ]
+}
