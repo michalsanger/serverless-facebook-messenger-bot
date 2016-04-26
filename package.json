@@ -28,7 +28,9 @@
     "facebook messenger bot"
   ],
   "dependencies": {
-    "axios": "^0.9.1"
+    "axios": "^0.9.1",
+    "serverless-offline": "^2.2.10",
+    "serverless-webpack-plugin": "^0.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.7.7",
@@ -38,8 +40,6 @@
     "chai": "^3.5.0",
     "json-loader": "^0.5.4",
     "mocha": "^2.4.5",
-    "serverless-offline": "^2.2.10",
-    "serverless-webpack-plugin": "^0.4.1",
     "sinon": "^1.17.3",
     "webpack": "^1.13.0"
   }
