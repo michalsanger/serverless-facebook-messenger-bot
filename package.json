@@ -1,6 +1,6 @@
 {
   "name": "serverless-facebook-messenger-bot",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Serverless backend for Facebook Messenger Bot.",
   "scripts": {
     "offline": "serverless offline start",
@@ -29,10 +29,6 @@
   ],
   "dependencies": {
     "axios": "^0.9.1",
-    "serverless-offline": "^2.2.10",
-    "serverless-webpack-plugin": "^0.4.1"
-  },
-  "devDependencies": {
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.7.4",
@@ -40,6 +36,8 @@
     "chai": "^3.5.0",
     "json-loader": "^0.5.4",
     "mocha": "^2.4.5",
+    "serverless-offline": "^2.2.10",
+    "serverless-webpack-plugin": "^0.4.1",
     "sinon": "^1.17.3",
     "webpack": "^1.13.0"
   }
