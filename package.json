@@ -1,6 +1,6 @@
 {
   "name": "serverless-facebook-messenger-bot",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Serverless backend for Facebook Messenger Bot.",
   "scripts": {
     "offline": "serverless offline start",
