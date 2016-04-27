@@ -1,4 +1,7 @@
 # Serverless Facebook Messenger Bot
+
+[![Build Status](https://travis-ci.org/michalsanger/serverless-facebook-messenger-bot.svg?branch=master)](https://travis-ci.org/michalsanger/serverless-facebook-messenger-bot)
+
 Serverless backend for Facebook Messenger Bot
 
 ## Install
