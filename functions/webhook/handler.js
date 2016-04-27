@@ -7,7 +7,6 @@ import {handlePostback} from './handlers/postback';
 import {handleAttachmentsReceived} from './handlers/attachmentsReceived';
 
 module.exports.handler = function(event, context, callback) {
-  //console.dir(event, {depth: 10});
   if (event.httpMethod === 'GET' && event.hubMode === "subscribe" && event.hubVerifyToken && event.hubChallenge) {
     if (String(event.hubVerifyToken) === String(process.env.VERIFY_TOKEN)) {
       return callback(null, parseInt(event.hubChallenge, 10));
@@ -25,6 +24,10 @@ module.exports.handler = function(event, context, callback) {
   }
 
   if (event.httpMethod === 'POST') {
+    if (process.env.LOG_WEBHOOK_MESSAGES === 'true') {
+      console.log(JSON.stringify(event.payload, null, ' '));
+    }
+
     const promises = [];
     let errorCount = 0;
     event.payload.entry.map((entry) => {
