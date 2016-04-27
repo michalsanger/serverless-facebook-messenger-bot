@@ -50,3 +50,24 @@ npm test
 
 ## Develop
 Want to add some logic into bot's responses? Take a look in `functions/webhook/handlers/`
+
+## Deploy
+```
+sls function deploy --all
+```
+
+## Running localy
+```
+npm run offline
+```
+and you can send POST requests to [http://localhost:3000/webhook](http://localhost:3000/webhook)
+
+To get an idea about the POST body, enable logging:
+```
+sls variables set -k LOG_WEBHOOK_MESSAGES -v true
+```
+
+deploy, send few messages via Messenger and see the logs:
+```
+sls function logs webhook
+```
