@@ -17,8 +17,8 @@ module.exports.handler = function(event, context, callback) {
 
   if (event.httpMethod === 'GET') {
     return callback(
-      "Invalid request. GET is used for subscribe only. " 
-      + "This request is missing one of required parametrs " 
+      "Invalid request. GET is used for subscribe only. "
+      + "This request is missing one of required parameters "
       + "(hubMode, hubVerifyToken, hubChallenge)"
     );
   }
@@ -32,13 +32,13 @@ module.exports.handler = function(event, context, callback) {
     let errorCount = 0;
     event.payload.entry.map((entry) => {
       entry.messaging.map((messagingItem) => {
-        
+
         let handlePromises = routeMessagingItem(messagingItem, entry);
         handlePromises ? promises.concat(handlePromises) : errorCount++;
 
       });
     });
-    
+
     return callback(null, {
       messageCount: promises.length,
       errorCount: errorCount,
@@ -51,23 +51,23 @@ module.exports.handler = function(event, context, callback) {
 
 function routeMessagingItem(messagingItem, entry) {
   if (messagingItem.optin) {
-    return [handleAuthentication(messagingItem, entry.id, entry.time)]
+    return [handleAuthentication(messagingItem, entry.id, entry.time)];
   }
   if (messagingItem.message && messagingItem.message.text) {
-    return [handleTextReceived(messagingItem, entry.id, entry.time)]
+    return [handleTextReceived(messagingItem, entry.id, entry.time)];
   }
 
   if (messagingItem.message && messagingItem.message.attachments) {
-    let res = handleAttachmentsReceived(messagingItem, entry.id, entry.time)
+    let res = handleAttachmentsReceived(messagingItem, entry.id, entry.time);
     return res;
   }
 
   if (messagingItem.delivery) {
-    return [handleMessageDelivered(messagingItem, entry.id, entry.time)]
+    return [handleMessageDelivered(messagingItem, entry.id, entry.time)];
   }
 
   if (messagingItem.postback) {
-    return [handlePostback(messagingItem, entry.id, entry.time)]
+    return [handlePostback(messagingItem, entry.id, entry.time)];
   }
 
   return []; // no match
