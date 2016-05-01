@@ -75,8 +75,8 @@ describe('Webhook handler', () => {
 
         handler(event, null, (error, response) => {
           expect(error).to.be.equal(
-            "Invalid request. GET is used for subscribe only. " 
-            + "This request is missing one of required parametrs " 
+            "Invalid request. GET is used for subscribe only. "
+            + "This request is missing one of required parameters "
             + "(hubMode, hubVerifyToken, hubChallenge)"
           );
         });
