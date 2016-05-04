@@ -4,6 +4,9 @@
 
 Serverless backend for Facebook Messenger Bot
 
+## [Demo](https://www.messenger.com/t/serverless.messenger.bot/)
+Send message, photo, location, anything Messenger supports.
+
 ## Install
 
 You need to have installed the [Serverless Framework](https://github.com/serverless/serverless) (version 0.5.2 or higher) and you're using Node.js v4.0+.
