@@ -34,7 +34,7 @@ function sendMessage(message, recipientId) {
   return axios.post(fbUrl, payload);
 }
 
-function createImageMessage(attachment) {
+export function createImageMessage(attachment) {
   return {
     text: "Image received, thanks",
   }
