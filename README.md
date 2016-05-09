@@ -4,7 +4,7 @@
 
 Serverless backend for Facebook Messenger Bot
 
-## [Demo](https://www.messenger.com/t/serverless.messenger.bot/)
+## [Demo](https://www.messenger.com/t/serverless.messenger.bot/) - not working yet, it takes time to review the app :-(
 Send message, photo, location, anything Messenger supports.
 
 ## Install
