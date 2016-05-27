@@ -31,6 +31,7 @@ describe('Webhook handler on POST request', () => {
     sandbox.stub(messageDelivered, "handleMessageDelivered");
     sandbox.stub(postback, "handlePostback");
     sandbox.stub(attachmentsReceived, "handleAttachmentsReceived");
+    process.env.APP_SECRET = 'app secret'
   });
 
   afterEach(function() {
