@@ -19,6 +19,7 @@ import imageReceivedPayload from './assets/imageReceivedPayload.json';
 import audioReceivedPayload from './assets/audioReceivedPayload.json';
 import locationReceivedPayload from './assets/locationReceivedPayload.json';
 import videoReceivedPayload from './assets/videoReceivedPayload.json';
+import crypto from 'crypto';
 
 describe('Webhook handler on POST request', () => {
   let sandbox;
@@ -46,6 +47,8 @@ describe('Webhook handler on POST request', () => {
         ]
       }
     };
+    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
+    event.signature = 'sha1=' + signatureHash;
 
     handler(event, null, (error, response) => {
       sinon.assert.calledOnce(authentication.handleAuthentication);
@@ -72,6 +75,8 @@ describe('Webhook handler on POST request', () => {
         ]
       }
     };
+    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
+    event.signature = 'sha1=' + signatureHash;
 
     handler(event, null, (error, response) => {
       sinon.assert.calledOnce(textReceived.handleTextReceived);
@@ -96,6 +101,8 @@ describe('Webhook handler on POST request', () => {
         "entry": textBatchReceivedPayload
       }
     };
+    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
+    event.signature = 'sha1=' + signatureHash;
 
     handler(event, null, (error, response) => {
       sinon.assert.calledThrice(textReceived.handleTextReceived);
@@ -136,6 +143,8 @@ describe('Webhook handler on POST request', () => {
         ]
       }
     };
+    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
+    event.signature = 'sha1=' + signatureHash;
 
     handler(event, null, (error, response) => {
       sinon.assert.calledOnce(attachmentsReceived.handleAttachmentsReceived);
@@ -162,6 +171,8 @@ describe('Webhook handler on POST request', () => {
         ]
       }
     };
+    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
+    event.signature = 'sha1=' + signatureHash;
 
     handler(event, null, (error, response) => {
       sinon.assert.calledOnce(attachmentsReceived.handleAttachmentsReceived);
@@ -188,6 +199,8 @@ describe('Webhook handler on POST request', () => {
         ]
       }
     };
+    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
+    event.signature = 'sha1=' + signatureHash;
 
     handler(event, null, (error, response) => {
       sinon.assert.calledOnce(attachmentsReceived.handleAttachmentsReceived);
@@ -214,6 +227,8 @@ describe('Webhook handler on POST request', () => {
         ]
       }
     };
+    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
+    event.signature = 'sha1=' + signatureHash;
 
     handler(event, null, (error, response) => {
       sinon.assert.calledOnce(attachmentsReceived.handleAttachmentsReceived);
@@ -240,6 +255,8 @@ describe('Webhook handler on POST request', () => {
         ]
       }
     };
+    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
+    event.signature = 'sha1=' + signatureHash;
 
     handler(event, null, (error, response) => {
       sinon.assert.calledOnce(messageDelivered.handleMessageDelivered);
@@ -266,6 +283,8 @@ describe('Webhook handler on POST request', () => {
         ]
       }
     };
+    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
+    event.signature = 'sha1=' + signatureHash;
 
     handler(event, null, (error, response) => {
       sinon.assert.calledOnce(postback.handlePostback);
