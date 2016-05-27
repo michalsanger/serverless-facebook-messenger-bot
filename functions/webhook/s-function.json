@@ -58,6 +58,7 @@
       "requestTemplates": {
         "application/json": {
           "payload": "$input.json(\"$\")",
+          "signature": "$input.params().header.get('X-Hub-Signature')",
           "httpMethod": "$context.httpMethod"
         }
       },
@@ -85,7 +86,8 @@
     "SERVERLESS_REGION": "${region}",
     "VERIFY_TOKEN": "${VERIFY_TOKEN}",
     "PAGE_ACCESS_TOKEN": "${PAGE_ACCESS_TOKEN}",
-    "LOG_WEBHOOK_MESSAGES": "${LOG_WEBHOOK_MESSAGES}"
+    "LOG_WEBHOOK_MESSAGES": "${LOG_WEBHOOK_MESSAGES}",
+    "APP_SECRET": "${APP_SECRET}"
   },
   "vpc": {
     "securityGroupIds": [],

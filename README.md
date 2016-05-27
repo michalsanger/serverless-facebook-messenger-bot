@@ -24,8 +24,10 @@ Follow [quickstart](https://developers.facebook.com/docs/messenger-platform/quic
 ```
 sls variables set -k PAGE_ACCESS_TOKEN
 sls variables set -k VERIFY_TOKEN
+sls variables set -k APP_SECRET
 ```
 `VERIFY_TOKEN` is used for subsciption verification.
+`APP_SECRET` is used as a sha1 key for signature verification.
 
 ### 4. Deploy backend app
 Deploy all functions and endpoints

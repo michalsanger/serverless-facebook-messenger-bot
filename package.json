@@ -39,6 +39,7 @@
     "serverless-offline": "^2.2.10",
     "serverless-webpack-plugin": "^0.4.1",
     "sinon": "^1.17.3",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0",
+    "crypto": "^0.0.3"
   }
 }
