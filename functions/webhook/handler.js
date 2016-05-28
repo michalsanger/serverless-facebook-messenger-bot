@@ -5,7 +5,7 @@ import {handleTextReceived} from './handlers/textReceived';
 import {handleMessageDelivered} from './handlers/messageDelivered';
 import {handlePostback} from './handlers/postback';
 import {handleAttachmentsReceived} from './handlers/attachmentsReceived';
-import crypto from 'crypto';
+import {checkSignature} from './utils/checkSignature';
 
 module.exports.handler = function(event, context, callback) {
   if (event.httpMethod === 'GET' && event.hubMode === "subscribe" && event.hubVerifyToken && event.hubChallenge) {
@@ -26,8 +26,7 @@ module.exports.handler = function(event, context, callback) {
 
   if (event.httpMethod === 'POST') {
 
-    const signatureHash = crypto.createHmac('sha1', process.env.APP_SECRET).update(JSON.stringify(event.payload)).digest('hex');
-    if (event.signature !== 'sha1=' + signatureHash) {
+    if (!checkSignature(event.signature, event.payload)) {
       return callback("Invalid signature");
     }
 
