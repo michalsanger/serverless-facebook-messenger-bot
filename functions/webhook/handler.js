@@ -5,6 +5,7 @@ import {handleTextReceived} from './handlers/textReceived';
 import {handleMessageDelivered} from './handlers/messageDelivered';
 import {handlePostback} from './handlers/postback';
 import {handleAttachmentsReceived} from './handlers/attachmentsReceived';
+import {checkSignature} from './utils/checkSignature';
 
 module.exports.handler = function(event, context, callback) {
   if (event.httpMethod === 'GET' && event.hubMode === "subscribe" && event.hubVerifyToken && event.hubChallenge) {
@@ -24,6 +25,11 @@ module.exports.handler = function(event, context, callback) {
   }
 
   if (event.httpMethod === 'POST') {
+
+    if (!checkSignature(event.signature, event.payload)) {
+      return callback("Invalid signature");
+    }
+
     if (process.env.LOG_WEBHOOK_MESSAGES === 'true') {
       console.log(JSON.stringify(event.payload, null, ' '));
     }
